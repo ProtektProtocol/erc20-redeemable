@@ -10,12 +10,12 @@
               style="font-size: 24px; padding-top: 4px;"
             >
               <img
-                src="~/@/assets/logo.svg"
+                src="~/@/assets/logo-protekt.svg"
                 class="mr-2 v-align-middle"
                 width="32"
                 height="32"
               />
-              <span v-text="'Balancer'" class="hide-sm" />
+              <span v-text="'Claim COMP Rewards'" class="hide-sm" />
             </router-link>
           </div>
           <div :key="web3.account">
