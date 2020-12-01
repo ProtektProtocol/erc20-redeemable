@@ -35,7 +35,7 @@
                 <div class="flex-auto">
                   <a
                     :href="
-                      `https://github.com/balancer-labs/bal-mining-scripts/blob/master/reports/${_week(
+                      `https://github.com/ProtektProtocol/protekt-mining-scripts/blob/master/reports/${_week(
                         week
                       )}/_totals.json`
                     "
@@ -70,7 +70,7 @@
                 <div class="flex-auto">
                   <a
                     :href="
-                      `https://github.com/balancer-labs/bal-mining-scripts/blob/master/reports/${_week(
+                      `https://github.com/ProtektProtocol/protekt-mining-scripts/blob/master/reports/${_week(
                         week
                       )}/_totals.json`
                     "
