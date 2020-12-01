@@ -1,5 +1,5 @@
 import { abi as Multicall } from '@/helpers/abi/Multicall.json';
-import { abi as MerkleRedeem } from '@/../../merkle/build/contracts/MerkleRedeem.json';
+import { abi as MerkleRedeem } from '@/helpers/abi/MerkleRedeem.json';
 
 export default {
   Multicall,
