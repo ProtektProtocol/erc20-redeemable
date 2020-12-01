@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "ERC20 redemption contract",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "serve": "cd client;vue-cli-service serve;cd ..",
+    "build": "cd client;vue-cli-service build;cd ..",
+    "lint": "cd client;vue-cli-service lint;cd ..",
+    "start": "cd client;vue-cli-service express:run;cd .."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gtaschuk/erc20-redeemable.git"
