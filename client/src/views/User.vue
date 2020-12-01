@@ -24,7 +24,7 @@
               <Icon name="external-link" class="ml-1" />
             </p>
           </a>
-          <Block :slim="true" title="Pending COMP">
+          <Block :slim="true" title="Pending PTK">
             <div class="overflow-hidden">
               <div
                 v-for="(dist, week, i) in unclaimed"
@@ -45,20 +45,20 @@
                     <Icon name="external-link" class="ml-1" />
                   </a>
                 </div>
-                <div>{{ $n(dist) }} COMP</div>
+                <div>{{ $n(dist) }} PTK</div>
               </div>
               <p
                 v-if="Object.keys(unclaimed).length === 0"
                 class="p-4 m-0 d-block"
               >
-                There isn't any pending COMP here.
+                There isn't any pending PTK here.
               </p>
             </div>
           </Block>
           <Block
             v-if="Object.keys(claimed).length > 0"
             :slim="true"
-            title="Claimed COMP"
+            title="Claimed PTK"
           >
             <div class="overflow-hidden">
               <div
@@ -80,16 +80,16 @@
                     <Icon name="external-link" class="ml-1" />
                   </a>
                 </div>
-                <div>{{ $n(dist) }} COMP</div>
+                <div>{{ $n(dist) }} PTK</div>
               </div>
             </div>
           </Block>
         </div>
         <div class="col-12 col-lg-4 float-left">
-          <Block title="Total pending COMP">
+          <Block title="Total pending PTK">
             <div class="mb-2">
               <UiButton class="width-full mb-2">
-                {{ $n(totalUnclaimed) }} COMP
+                {{ $n(totalUnclaimed) }} PTK
               </UiButton>
             </div>
             <UiButton
