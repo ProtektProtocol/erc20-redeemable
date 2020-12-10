@@ -15,7 +15,7 @@
                 width="32"
                 height="32"
               />
-              <span v-text="'Claim COMP Rewards'" class="hide-sm" />
+              <span v-text="'Claim PTK Rewards'" class="hide-sm" />
             </router-link>
           </div>
           <div :key="web3.account">

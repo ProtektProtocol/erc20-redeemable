@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import { toWei, soliditySha3 } from 'web3-utils';
 import numeral from 'numeral';
-import { getReports, getSnapshot } from '@/helpers/utils';
+import { getReport, getReports, getSnapshot } from '@/helpers/utils';
 import ipfs from '@/helpers/ipfs';
 import config from '@/config';
 import { isTxReverted } from '@/helpers/utils';
@@ -49,8 +49,11 @@ const actions = {
     if (Object.keys(snapshot).length > 0) {
       const result: any = Object.entries(snapshot).slice(-1);
       latestWeek = result[0][0];
-      const latestWeekIpfsHash = result[0][1];
-      latestReport = await ipfs.get(latestWeekIpfsHash);
+      latestReport = await getReport(snapshot, latestWeek);
+
+      console.log('latestReport');
+      console.log(latestReport);
+
       reports[latestWeek] = latestReport;
     }
     commit('SET', {

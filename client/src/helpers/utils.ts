@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import axios from 'axios';
 import config from '@/config';
 import ipfs from '@/helpers/ipfs';
 import pkg from '@/../package.json';
@@ -77,18 +78,44 @@ export function sleep(ms) {
 
 export async function getSnapshot() {
   const networkStr = config.chainId === 1 ? '' : '-kovan';
-  return (
-    (await ipfs.get(
-      `balancer-team-bucket.storage.fleek.co/balancer-claim${networkStr}/snapshot`,
-      'ipns'
-    )) || {}
-  );
+  let snapshot = {}
+  try {
+    const response = await axios.get(`https://raw.githubusercontent.com/ProtektProtocol/protekt-mining-scripts/master/reports/${'PTK'}/snapshot.json`);
+    snapshot = response.data
+    console.log(response);
+  } catch (error) {
+    console.error(error);
+  }
+
+  return snapshot
+}
+
+export async function getReport(snapshot, week) {
+  let report = {};
+  let response
+  try {
+    response = await axios.get(`https://raw.githubusercontent.com/ProtektProtocol/protekt-mining-scripts/master/reports/${'PTK'}/${week}/_totals.json`);
+    report = response.data
+    console.log(response);
+  } catch (error) {
+    report = {}
+    console.error(error);
+  }
+  return report;
 }
 
 export async function getReports(snapshot, weeks) {
   const reports = {};
+  let response
   for (const week of weeks) {
-    reports[week] = await ipfs.get(snapshot[week]);
+    try {
+      response = await axios.get(`https://raw.githubusercontent.com/ProtektProtocol/protekt-mining-scripts/master/reports/${'PTK'}/${week}/_totals.json`);
+      reports[week] = response.data
+      console.log(response);
+    } catch (error) {
+      reports[week] = {}
+      console.error(error);
+    }
   }
   return reports;
 }
